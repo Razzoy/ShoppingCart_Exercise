@@ -6,8 +6,8 @@ export function Products() {
 
     const [products, setProducts] = useState();
 
-    const {cartData} = useContext(CartContext)
-    console.log("CardData is", cartData);
+    const {cartData, addToCart} = useContext(CartContext)
+    // console.log("CardData is", cartData);
     
 
     useEffect(() => {
@@ -24,10 +24,10 @@ export function Products() {
                 return (
                     <figure key={item.title}>
                         <h3>{item.title}</h3>
-                        <img src={item.images[0]} alt="" />
+                        {/* <img src={item.images[0]} alt="" /> */}
                         <h4>€ {item.price}</h4>
                         <p>{item.description}</p>
-                        <button>Add to cart</button>
+                        <button onClick={() => addToCart(item)}>Add to cart</button>
                     </figure>
                 )
             })}
